@@ -42,7 +42,7 @@ const routes = [
 const Navigation = () => {
   const pathname=usePathname();
   const params=useParams();
-  const workspaceId=params.workspaceId;
+  const workspaceId=params.workSpaceId;
   return (
     <div>
       <ul className="flex flex-col">

@@ -12,13 +12,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"; // use styled Avatar
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ImageIcon } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
-interface CreateWorkspaceFormProps {
+interface CreateProjectFormFormProps {
   onCancel: () => void;
 }
 
@@ -27,7 +27,7 @@ interface FormData {
   image: File | string | null;
 }
 
-const CreateWorkspace = ({ onCancel }: CreateWorkspaceFormProps) => {
+const CreateProjectForm = ({ onCancel }: CreateProjectFormFormProps) => {
   const form = useForm<FormData>({
     defaultValues: {
       name: "",
@@ -46,7 +46,7 @@ const CreateWorkspace = ({ onCancel }: CreateWorkspaceFormProps) => {
     <Card className="w-full h-full border-none shadow-none">
       <CardHeader className="flex p-4">
         <CardTitle className="text-xl font-bold">
-          Create a new workspace
+          Create a new project
         </CardTitle>
       </CardHeader>
       <div className="px-7">
@@ -56,15 +56,15 @@ const CreateWorkspace = ({ onCancel }: CreateWorkspaceFormProps) => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-y-4">
-              {/* Workspace name */}
+              {/* Project name */}
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Workspace Name</FormLabel>
+                    <FormLabel>Project Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter workspace name" {...field} />
+                      <Input placeholder="Enter project name" {...field} />
                     </FormControl>
                   </FormItem>
                 )}
@@ -85,7 +85,7 @@ const CreateWorkspace = ({ onCancel }: CreateWorkspaceFormProps) => {
                                 ? URL.createObjectURL(field.value)
                                 : field.value
                             }
-                            alt="Workspace Icon"
+                            alt="Project Icon"
                             className="object-cover"
                             fill
                           />
@@ -99,7 +99,7 @@ const CreateWorkspace = ({ onCancel }: CreateWorkspaceFormProps) => {
                       )}
 
                       <div className="flex flex-col">
-                        <p className="text-sm">Workspace Icon</p>
+                        <p className="text-sm">Project Icon</p>
                         <p className="text-sm text-muted-foreground">
                           JPG, PNG, SVG, or JPEG, max 1mb
                         </p>
@@ -133,7 +133,7 @@ const CreateWorkspace = ({ onCancel }: CreateWorkspaceFormProps) => {
                         ) : (
                           <Button
                             type="button"
-                            variant={"teritary"}
+                            variant="teritary"
                             size="xs"
                             className="w-fit mt-2"
                             onClick={() => inputRef.current?.click()}
@@ -163,7 +163,7 @@ const CreateWorkspace = ({ onCancel }: CreateWorkspaceFormProps) => {
                 Cancel
               </Button>
               <Button type="submit" size="lg" disabled={isPending}>
-                Create Workspace
+                Create Project
               </Button>
             </div>
           </form>
@@ -173,4 +173,4 @@ const CreateWorkspace = ({ onCancel }: CreateWorkspaceFormProps) => {
   );
 };
 
-export default CreateWorkspace;
+export default CreateProjectForm;

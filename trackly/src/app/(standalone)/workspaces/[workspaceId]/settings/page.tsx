@@ -1,16 +1,20 @@
 
+import EditWorkspaceForm from '@/features/workspaces/components/edit-workspace-form'
 import React from 'react'
 
 interface WorkspaceIdSettingsProps{
   params:{
-    workspaceId:string
+    workSpaceId:string
   }
 }
 
 const  SettingsPage =async ({params}:WorkspaceIdSettingsProps) => {
   
   return (
-    <div>settingsPage :{params?.workspaceId}</div>
+    <div className='w-full lg:max-w-xl'>
+      <EditWorkspaceForm/>
+    </div>
+   
   )
 }
 

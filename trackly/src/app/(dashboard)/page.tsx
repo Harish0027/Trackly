@@ -30,9 +30,9 @@ export default  function Home() {
 
   useEffect(()=>{
    if(workspaces.length===0){
-    router.push("/workspace/create")
+    router.push("/workspaces/create")
   }else{
-    router.push(`/workspace/${workspaces[0].id}`)
+    router.push(`/workspaces/${workspaces[0].id}`)
   }
   },[router])
   

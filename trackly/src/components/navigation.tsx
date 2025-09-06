@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { cn } from "@/lib/utils";
 import { SettingsIcon, UserIcon } from "lucide-react";
@@ -40,14 +40,14 @@ const routes = [
 ];
 
 const Navigation = () => {
-  const pathname=usePathname();
-  const params=useParams();
-  const workspaceId=params.workSpaceId;
+  const pathname = usePathname();
+  const params = useParams();
+  const workSpaceId = params.workSpaceId;
   return (
     <div>
       <ul className="flex flex-col">
         {routes.map((item) => {
-         const fullHref = `/workspaces/${workspaceId}/${item.href}`;
+          const fullHref = `/workspaces/${workSpaceId}/${item.href}`;
           const isActive = false;
           const Icon = isActive ? item.activeIcon : item.icon;
 
@@ -56,11 +56,12 @@ const Navigation = () => {
               <div
                 className={cn(
                   "flex items-center gap-2.5 p-2.5 rounded-md font-medium hover:text-primary transition text-neutral-500",
-                  isActive && "bg-white shadow-sm hover:opacity-100 text-primary"
+                  isActive &&
+                    "bg-white shadow-sm hover:opacity-100 text-primary"
                 )}
               >
                 <Icon className="size-5 text-neutral-500" />
-                {item.label}:{workspaceId}
+                {item.label}:{workSpaceId}
               </div>
             </Link>
           );

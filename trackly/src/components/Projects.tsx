@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 const Projects = () => {
   const pathname = usePathname();
   const segments = pathname.split("/");
-  const workspaceId = segments[2]; // e.g., from /workspaces/ws1/...
+  const workSpaceId = segments[2]; 
 
   const projects = [
     { id: "p1", name: "Project One" },
@@ -20,8 +20,8 @@ const Projects = () => {
     <div className="flex flex-col gap-y-2">
       <div className="flex items-center justify-between">
         <p className="text-xs uppercase text-neutral-500">Projects</p>
-        {workspaceId && (
-          <Link href={`/workspaces/${workspaceId}/project/create`}>
+        {workSpaceId && (
+          <Link href={`/workspaces/${workSpaceId}/project/create`}>
             <RiAddCircleFill className="size-5 text-neutral-500 cursor-pointer hover:opacity-75 transition" />
           </Link>
         )}
@@ -29,7 +29,7 @@ const Projects = () => {
 
       {projects.length > 0 ? (
         projects.map((project) => {
-          const href = `/workspaces/${workspaceId}/project/${project.id}`;
+          const href = `/workspaces/${workSpaceId}/project/${project.id}`;
           const isActive = pathname === href;
 
           return (
